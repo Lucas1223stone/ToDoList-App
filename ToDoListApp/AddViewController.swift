@@ -10,7 +10,7 @@ import UIKit
 
 class AddViewController: UIViewController, UITextViewDelegate {
     
-    var delegate: ListDelegate? = nil
+    var delegate: ListDelegate?
     
     var textBox: UITextView? = nil
     
@@ -20,7 +20,16 @@ class AddViewController: UIViewController, UITextViewDelegate {
         self.navigationItem.rightBarButtonItem =
             UIBarButtonItem(title: "Done", style: .Done, target: self, action: "done:")
         
-        textBox = UITextView(frame: CGRect(x: 0, y: 0, width: 300, height: 500))
+        var v  = UIView(frame: CGRect(x: 20, y: 100, width: 300, height: 500))
+        
+        var f: CGFloat = 0.5
+        
+        v.transform = CGAffineTransformMakeRotation(0.5 * CGFloat(M_PI))
+        v.backgroundColor = UIColor.greenColor()
+        view.addSubview(v)
+        
+        
+        textBox = UITextView(frame: v.bounds.offsetBy(dx: 10, dy: 10))
         
         textBox!.backgroundColor = UIColor.orangeColor()
         
